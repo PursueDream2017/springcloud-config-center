@@ -1,0 +1,34 @@
+server:
+  port: 8989
+spring:
+  cloud:
+    consul:
+      host: hyy.localhost.com
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+#修改ribbon某个服务的负载均衡策略
+products:
+  ribbon:
+    NFLoadBalanceRuleClassName: com.netflix.loadbalancer.RandomRule
+feign:
+  client:
+    config:
+      #修改全局的默认超时时长配置
+      default:
+        connectTimeout: 6000
+        readTimeout: 6000
+        #全局的feign调用日志记录级别
+        loggerLevel: full
+      #配置某个具体服务的调用超时时长
+      products:
+        connectTimeout: 6000
+        readTimeout: 6000
+        #指定某个具体服务的日志级别
+        loggerLevel: full #全日志级别
+  hystrix:
+    #开启hystrix熔断
+    enabled: true
+logging:
+  level:
+    cn.pursuedream.controller.openfeign.feignclients: debug
