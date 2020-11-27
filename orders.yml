@@ -9,5 +9,4 @@ spring:
       host: hyy.localhost.com
       port: 8500
       discovery:
-        instance-id: ${spring.application.name}
         service-name: ${spring.application.name}
