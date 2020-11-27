@@ -2,6 +2,8 @@ server:
   port: 8991
 
 spring:
+  application:
+    name: orders
   cloud:
     consul:
       host: hyy.localhost.com
