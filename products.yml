@@ -1,6 +1,6 @@
 server:
   port: 8990
-spring
+spring:
   cloud:
     consul:
       host: hyy.localhost.com
